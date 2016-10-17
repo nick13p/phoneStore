@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row">
+		<div *ngFor="let item of items | async">
+			<div *ngIf="item.$key == id">
+				<div class="col-xs-6">
+					<img
+						myLoupe="
+							gallery: '#gallery',
+							widthLens: 150,
+							heightLens: 150,
+							left: 30"
+						id="main-img"
+						src="{{'https://firebasestorage.googleapis.com/v0/b/heroes-cd192.appspot.com/o/phones%2F' + item.imgs[0] + '?alt=media&token='}}"
+						alt="{{item.name}}"
+						width="300"
+						height="300"
+					>
+					<div id="gallery">
+						<img src="{{'https://firebasestorage.googleapis.com/v0/b/heroes-cd192.appspot.com/o/phones%2F' + img + '?alt=media&token='}}" alt="{{img}}" *ngFor="let img of item.imgs">
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<h1>{{item.name}}</h1>
+					<p>{{item.description}}</p>
+					<span class="label" [class.is-not-presence]="item.presence === false"><a href="#">{{item.presence ? "Buy now" : "Will be soon"}}</a></span>
+				</div>
+			</div><!-- /ngIf -->
+		</div><!-- /ngFor -->
+	</div>
+</div>

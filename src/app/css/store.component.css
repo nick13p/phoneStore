@@ -1,0 +1,43 @@
+.preview-phone{
+	-webkit-box-shadow: 0 0 10px gray;
+	box-shadow: 0 0 5px gray;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 5px;
+	position: relative;
+}
+	.preview-phone h2{
+		font-size: 40px;
+		overflow: hidden;
+		text-align: center;
+		text-overflow: ellipsis;
+		text-transform: capitalize;
+		white-space: nowrap;
+	}
+	.preview-phone p{
+		color: #555;
+		display: block;
+		text-overflow: ellipsis;
+		word-wrap: break-word;
+		overflow: hidden;
+		max-height: 5.2em;
+		line-height: 1.8em;
+	}
+	.preview-phone img{
+		display: block;
+		margin: 0 auto 20px;
+		width: 80%;
+	}
+	.preview-phone span{
+		background: skyblue;
+		font-size: 20px;
+		left: -10px;
+		position: absolute;
+		top: -10px;
+	}
+	.preview-phone span.is-not-presence{
+		background: darkorange;
+	}
+		.preview-phone span.is-not-presence a{
+			pointer-events: none;
+		}

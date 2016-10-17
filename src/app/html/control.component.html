@@ -1,0 +1,70 @@
+<div class="container">
+	<div class="row">
+
+		<div class="col-xs-3">
+			<h2>Input phones</h2>
+			<form (submit)="addItem(name.value, description.value, presence.value)">
+
+				<div class="form-group">
+					<label>Name</label>
+					<input type="text" class="form-control" placeholder="NAME" #name>
+				</div>
+
+				<div class="form-group">
+					<label>Description</label>
+					<textarea class="form-control" rows="5" placeholder="DESCRIPTION" #description></textarea>
+				</div>
+
+				<div class="form-group">
+					<select size="3" #presence>
+						<option disabled>Is available?</option>
+						<option value="true">True</option>
+						<option value="false">False</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label>Files input</label>
+					<progress id="uploader" value="0" max="100"></progress>
+					<input id="fileButton" type="file" multiple accept="image/*,image/jpeg">
+				</div>
+
+				<button class="btn btn-primary" type="submit">Add Item</button>
+
+			</form>
+		</div>
+
+		<div class="col-xs-9">
+			<table class="table">
+
+				<thead>
+					<tr>
+						<th>name</th>
+						<th>imgs</th>
+						<th>description</th>
+						<th>presence</th>
+						<th>...</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr *ngFor="let item of items | async">
+						<td>{{item.name}}</td>
+						<td>
+							<p *ngFor="let img of item.imgs">{{img}}</p>
+						</td>
+						<td>{{item.description}}</td>
+						<td>{{item.presence}}</td>
+						<td>
+							<!-- <button (click)="updateItem(item.$key, updatename.value, updatebelt.value)">Update</button> -->
+							<button class="btn btn-warning" (click)="deleteItem(item)">Delete</button>
+						</td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+
+	</div>
+</div>
+

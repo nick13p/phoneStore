@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-lg-4" *ngFor="let item of items | async">
+			<div class="preview-phone">
+				<h2><a routerLink="/phone/{{item.$key}}">{{item.name}}</a></h2>
+				<img src="{{'https://firebasestorage.googleapis.com/v0/b/heroes-cd192.appspot.com/o/phones%2F' + item.imgs[0] + '?alt=media&token='}}" alt="{{item.name}}">
+				<span class="label" [class.is-not-presence]="item.presence === false"><a href="#">{{item.presence ? "Buy now" : "Will be soon"}}</a></span>
+				<p>{{item.description}}</p>
+			</div>
+		</div>
+	</div>
+</div>
